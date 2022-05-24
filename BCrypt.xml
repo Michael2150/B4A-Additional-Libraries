@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <doclet-version-NOT-library-version>1.05</doclet-version-NOT-library-version>
+    <class>
+        <name>ro.mindful.wrapper.jBCrypt.BCrypt</name>
+        <shortname>BCrypt</shortname>
+        <owner>process</owner>
+        <method>
+            <name>HashPW2</name>
+            <comment>LogRounds parameter determines the complexity
+the work factor is 2**LogRounds, and the default is 10</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>Password</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>LogRounds</name>
+                <type>int</type>
+            </parameter>
+        </method>
+        <method>
+            <name>CheckPW</name>
+            <comment></comment>
+            <returntype>boolean</returntype>
+            <parameter>
+                <name>PlainText</name>
+                <type>java.lang.String</type>
+            </parameter>
+            <parameter>
+                <name>Hashed</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+        <method>
+            <name>HashPW</name>
+            <comment>Hash the password using default internals</comment>
+            <returntype>java.lang.String</returntype>
+            <parameter>
+                <name>Password</name>
+                <type>java.lang.String</type>
+            </parameter>
+        </method>
+    </class>
+    <version>1.01</version>
+    <author>mindful</author>
+</root>

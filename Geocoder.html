@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Geocoder</title>
+		<style type="text/css">
+			body{
+				background-color:#E1DEE6;
+				color:#222;
+				font-family:Arial,Helvetica,sans-serif;
+				font-size:14px;
+				margin:0;
+				padding:0;
+			}
+			h3{
+				background-color:#869BBF;
+				margin:0;
+				padding:5px;
+			}
+			ul{
+				list-style:none;
+				margin:5px;
+				padding:0;
+			}
+			ul li{
+				background-color:#FFF;
+				border:1px solid #666;
+				margin:0;
+				padding:5px;
+			}
+			ul li:first-child, h3{
+				border-top-left-radius:5px;
+				border-top-right-radius:5px;
+			}
+			ul li:last-child, h3{
+				border-bottom-left-radius:5px;
+				border-bottom-right-radius:5px;
+			}
+			ul h3:first-child{
+				background-color:#869BDF;
+				margin-bottom:5px;
+			}
+		</style>
+    </head>
+    <body><h3>Geocoder</h3>
+<ul>
+<li><h3>Address</h3>
+<h3>Methods:</h3>
+<ul>
+<li><b>HasLatitude <span style='color:blue'>As</span> <span style='color:#008B8B'>Boolean</span></b>
+<br><i>Returns True if a latitude has been assigned to this Address, False otherwise.</i>
+</li>
+<li><b>HasLongitude <span style='color:blue'>As</span> <span style='color:#008B8B'>Boolean</span></b>
+<br><i>Returns True if a longitude has been assigned to this Address, False otherwise.</i>
+</li>
+<li><b>IsInitialized <span style='color:blue'>As</span> <span style='color:#008B8B'>Boolean</span></b>
+</li>
+</ul>
+<h3>Properties:</h3>
+<ul>
+<li><b>AddressLines <span style='color:blue'>As</span> <span style='color:#008B8B'>List</span></b> <i>[read only]</i>
+<br><i>Returns a List of Strings which are the address lines of the Address.</i>
+</li>
+<li><b>AdminArea <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the administrative area name of the Address.
+ For example, "CA", or Null if it is unknown.</i>
+</li>
+<li><b>CountryCode <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the country code of the Address.
+ For example "US", or Null if it is unknown.</i>
+</li>
+<li><b>CountryName <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the localized country name of the Address.
+ For example "Iceland", or Null if it is unknown.</i>
+</li>
+<li><b>FeatureName <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the feature name of the Address.
+ For example, "Golden Gate Bridge", or Null if it is unknown.</i>
+</li>
+<li><b>Latitude <span style='color:blue'>As</span> <span style='color:#008B8B'>Double</span></b> <i>[read only]</i>
+<br><i>Returns the latitude of the Address if known.</i>
+</li>
+<li><b>Locality <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the locality of the Address.
+ For example "Mountain View", or Null if it is unknown.</i>
+</li>
+<li><b>Longitude <span style='color:blue'>As</span> <span style='color:#008B8B'>Double</span></b> <i>[read only]</i>
+<br><i>Returns the longitude of the Address if known.</i>
+</li>
+<li><b>Phone <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the phone number of the Address if known, or Null if it is unknown.</i>
+</li>
+<li><b>PostalCode <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the postal code of the Address.
+ For example "94110", or Null if it is unknown.</i>
+</li>
+<li><b>Premises <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the premises of the Address, or Null if it is unknown.</i>
+</li>
+<li><b>SubAdminArea <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the sub-administrative area name of the Address.
+ For example, "Santa Clara County", or Null if it is unknown.</i>
+</li>
+<li><b>SubLocality <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the sub-locality of the Address, or Null if it is unknown.</i>
+</li>
+<li><b>SubThoroughfare <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the sub-thoroughfare name of the Address, or Null if it is unknown.</i>
+</li>
+<li><b>Thoroughfare <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the thoroughfare name of the Address.
+ For example, "1600 Ampitheater Parkway", or Null if it is unknown.</i>
+</li>
+<li><b>Url <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span></b> <i>[read only]</i>
+<br><i>Returns the public URL for the Address, or Null if it is unknown.</i>
+</li>
+</ul>
+</ul>
+<ul>
+<li><h3>Geocoder</h3>
+<h3>Events:</h3>
+<ul>
+<li><b>GeocodeDone</b> (Addresses() <span style='color:blue'>As</span> <span style='color:#008B8B'>Address</span>, Tag <span style='color:blue'>As</span> <span style='color:#008B8B'>Object</span>)</li>
+</ul>
+<h3>Methods:</h3>
+<ul>
+<li><b>GetFromLocation</b> (Latitude <span style='color:blue'>As</span> <span style='color:#008B8B'>Double</span>, Longitude <span style='color:blue'>As</span> <span style='color:#008B8B'>Double</span>, MaxResults <span style='color:blue'>As</span> <span style='color:#008B8B'>Int</span>, Tag <span style='color:blue'>As</span> <span style='color:#008B8B'>Object</span>)<b></b>
+<br><i>Gets an Array of Address objects that describe the area immediately surrounding the given Latitude and Longitude.
+ The Array of Address objects is passed back to B4A in the GeocodeDone event along with the Tag Object.
+ Tag is not used by this method, it is simply a means by which you can associate an identifying Object with this task.</i>
+</li>
+<li><b>GetFromLocationName</b> (LocationName <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span>, MaxResults <span style='color:blue'>As</span> <span style='color:#008B8B'>Int</span>, Tag <span style='color:blue'>As</span> <span style='color:#008B8B'>Object</span>)<b></b>
+<br><i>Gets an Array of Address objects that describe the named location.
+ LocationName may be a place name such as "Dalvik, Iceland", an address such as "1600 Amphitheatre Parkway, Mountain View, CA", an airport code such as "SFO", etc...
+ The Array of Address objects is passed back to B4A in the GeocodeDone event along with the Tag Object.
+ Tag is not used by this method, it is simply a means by which you can associate an identifying Object with this task.</i>
+</li>
+<li><b>GetFromLocationName2</b> (LocationName <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span>, MaxResults <span style='color:blue'>As</span> <span style='color:#008B8B'>Int</span>, LowerLeftLatitude <span style='color:blue'>As</span> <span style='color:#008B8B'>Double</span>, LowerLeftLongitude <span style='color:blue'>As</span> <span style='color:#008B8B'>Double</span>, UpperRightLatitude <span style='color:blue'>As</span> <span style='color:#008B8B'>Double</span>, UpperRightLongitude <span style='color:blue'>As</span> <span style='color:#008B8B'>Double</span>, Tag <span style='color:blue'>As</span> <span style='color:#008B8B'>Object</span>)<b></b>
+<br><i>Returns an array of Addresses that are known to describe the named location within the geographical bounds.
+ LocationName may be a place name such as "Dalvik, Iceland", an address such as "1600 Amphitheatre Parkway, Mountain View, CA", an airport code such as "SFO", etc..
+ The Array of Address objects is passed back to B4A in the GeocodeDone event along with the Tag Object.
+ Tag is not used by this method, it is simply a means by which you can associate an identifying Object with this task.</i>
+</li>
+<li><b>Initialize</b> (EventName <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span>)<b></b>
+<br><i>Initialize the Geocoder object with the device's system Locale.</i>
+</li>
+<li><b>Initialize2</b> (EventName <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span>, Language <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span>)<b></b>
+<br><i>Initialize the Geocoder object with a Locale based on Language.</i>
+</li>
+<li><b>Initialize3</b> (EventName <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span>, Language <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span>, Country <span style='color:blue'>As</span> <span style='color:#008B8B'>String</span>)<b></b>
+<br><i>Initialize the Geocoder object with a Locale based on Language and Country.</i>
+</li>
+<li><b>IsInitialized <span style='color:blue'>As</span> <span style='color:#008B8B'>Boolean</span></b>
+</li>
+<li><b>IsPresent <span style='color:blue'>As</span> <span style='color:#008B8B'>Boolean</span></b>
+<br><i>Returns true if the Geocoder methods GetFromLocation and GetFromLocationName etc are implemented.
+ Lack of network connectivity may still cause these methods to return null or empty lists.</i>
+</li>
+</ul>
+</ul>
+<ul><li><h3>Author: Martin Pearman</h3></li></ul>
+<ul><li><h3>Version: 2.10</h3></li></ul></body>
+</html>								
